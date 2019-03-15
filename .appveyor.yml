@@ -1,5 +1,5 @@
 init:
-# -ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+ -ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 
 version: 2.9.1.{build}
 
@@ -34,4 +34,4 @@ after_build:
         appveyor PushArtifact PTHREADS-Win%PLATFORM%-%VS_VERSION%-%APPVEYOR_REPO_BRANCH%-%CONFIGURATION%-%APPVEYOR_BUILD_VERSION%.zip
 
 on_finish:
-# - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+ - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
