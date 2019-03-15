@@ -12,5 +12,5 @@ IF "%PLATFORM%"=="x86" (
 
 md %APPVEYOR_BUILD_FOLDER%\package\pthread-win%FOLDER_PLATFORM%
 
-(robocopy pthread-win%FOLDER_PLATFORM%\ %APPVEYOR_BUILD_FOLDER%\package\pthread-win%FOLDER_PLATFORM% /s /e /np) ^& IF %ERRORLEVEL% GTR 1 exit %ERRORLEVEL%
+(robocopy c:\pthread-win%FOLDER_PLATFORM%\ %APPVEYOR_BUILD_FOLDER%\package\pthread-win%FOLDER_PLATFORM% /s /e /np) ^& IF %ERRORLEVEL% GTR 1 exit %ERRORLEVEL%
 exit 0
