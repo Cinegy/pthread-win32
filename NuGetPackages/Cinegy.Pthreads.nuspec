@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package >
+	<metadata>
+		<id>Cinegy.Pthreads</id>
+		<title>Cinegy.Pthreads</title>
+		<version>$version$-beta</version>
+		<authors>Ross Johnson (rpj@ise.canberra.edu.au),Ben Elliston (bje@cygnus.com)</authors>
+		<owners>Cinegy GmbH</owners>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<description>Pthreads-win32 binary package, built for use by SRT (https://www.srtalliance.org/)</description>
+		<copyright>Please see http://sourceware.org/pthreads-win32/ for details of authors and contributors</copyright>
+	</metadata>
+
+	<files>
+		<file src="..\..\Release.Win32\**\*.*" target="runtimes\win-x86\native\release"/>
+		<file src="..\..\Release.x64\**\*.*" target="runtimes\win-x64\native\release" />
+		<!-- <file src="..\..\sources\**\*.*" target="sources"/> -->
+
+	</files>
+</package>
