@@ -1,18 +1,18 @@
 <?xml version="1.0"?>
 <package >
 	<metadata>
-		<id>Cinegy.Pthreads</id>
-		<title>Cinegy.Pthreads</title>
+		<id>cinegy.pthreads-win$bitness$</id>
+		<title>Cinegy pthreads-win$bitness$</title>
 		<version>$version$-beta</version>
 		<authors>Ross Johnson (rpj@ise.canberra.edu.au),Ben Elliston (bje@cygnus.com)</authors>
 		<owners>Cinegy GmbH</owners>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
-		<description>Pthreads-win32 binary package, built for use by SRT (https://www.srtalliance.org/)</description>
+		<description>Pthreads-win$bitness$ binary package, built for use by SRT (https://www.srtalliance.org/)</description>
 		<copyright>Please see http://sourceware.org/pthreads-win32/ for details of authors and contributors</copyright>
 	</metadata>
 
 	<files>
-		<file src="C:\pthread-win*\lib\*.*" target="runtimes\win-x64\native\release"/>
-		<file src="C:\pthread-win*\include\*.h" target="sources"/> 
+		<file src="C:\pthread-win$bitness$\lib\*.*" target="runtimes\win-x$platform$\native\release"/>
+		<file src="C:\pthread-win$bitness$\include\*.h" target="sources"/> 
 	</files>
 </package>
