@@ -39,6 +39,8 @@ after_build:
         7z a pthread-win%BITNESS%-PDB-%VS_VERSION%-%APPVEYOR_REPO_BRANCH%-%CONFIGURATION%-%APPVEYOR_BUILD_VERSION%.zip %APPVEYOR_BUILD_FOLDER%\bin\*
         appveyor PushArtifact pthread-win%BITNESS%-PDB-%VS_VERSION%-%APPVEYOR_REPO_BRANCH%-%CONFIGURATION%-%APPVEYOR_BUILD_VERSION%.zip
 
+        appveyor PushArtifact cinegy.pthreads-win%BITNESS%.%APPVEYOR_BUILD_VERSION%.nupkg
+
 
 on_finish:
- - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+# - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))

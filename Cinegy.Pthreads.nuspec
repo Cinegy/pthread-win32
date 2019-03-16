@@ -3,7 +3,7 @@
 	<metadata>
 		<id>cinegy.pthreads-win$bitness$</id>
 		<title>Cinegy pthreads-win$bitness$</title>
-		<version>$version$-beta</version>
+		<version>$version$</version>
 		<authors>Ross Johnson (rpj@ise.canberra.edu.au),Ben Elliston (bje@cygnus.com)</authors>
 		<owners>Cinegy GmbH</owners>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
