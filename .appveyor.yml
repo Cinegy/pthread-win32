@@ -26,7 +26,10 @@ build_script:
   - ps: mkdir C:/pthread-$FOLDER_PLATFORM/lib
   - ps: cp *.h C:/pthread-$FOLDER_PLATFORM/include
   - ps: cp bin/$($DEVENV_PLATFORM)_MSVC${VS_VERSION}.${Env:CONFIGURATION}/pthread_lib.lib C:/pthread-$FOLDER_PLATFORM/lib
+  - ps: cp bin/$($DEVENV_PLATFORM)_MSVC${VS_VERSION}.${Env:CONFIGURATION}/pthread_dll.dll C:/pthread-$FOLDER_PLATFORM/lib
   
+publish_nuget: true
+
 after_build:
 - cmd: >-
     scripts/gather-package.bat
@@ -35,5 +38,7 @@ after_build:
 
         7z a pthread-win%PLATFORM%-PDB-%VS_VERSION%-%APPVEYOR_REPO_BRANCH%-%CONFIGURATION%-%APPVEYOR_BUILD_VERSION%.zip %APPVEYOR_BUILD_FOLDER%\bin\*
         appveyor PushArtifact pthread-win%PLATFORM%-PDB-%VS_VERSION%-%APPVEYOR_REPO_BRANCH%-%CONFIGURATION%-%APPVEYOR_BUILD_VERSION%.zip
+
+
 on_finish:
-# - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+ - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))

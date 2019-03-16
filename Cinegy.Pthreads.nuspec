@@ -12,9 +12,7 @@
 	</metadata>
 
 	<files>
-		<file src="..\..\Release.Win32\**\*.*" target="runtimes\win-x86\native\release"/>
-		<file src="..\..\Release.x64\**\*.*" target="runtimes\win-x64\native\release" />
-		<!-- <file src="..\..\sources\**\*.*" target="sources"/> -->
-
+		<file src="C:\pthread-win*\lib\*.*" target="runtimes\win-x64\native\release"/>
+		<file src="C:\pthread-win*\include\*.h" target="sources"/> -->
 	</files>
 </package>
