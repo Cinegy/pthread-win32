@@ -12,7 +12,7 @@
 	</metadata>
 
 	<files>
-		<file src="C:\pthread-win$bitness$\lib\*.*" target="runtimes\win-x$platform$\native\release"/>
+		<file src="C:\pthread-win$bitness$\lib\*.*" target="runtimes\win-$platform$\native\release"/>
 		<file src="C:\pthread-win$bitness$\include\*.h" target="sources"/> 
 	</files>
 </package>
