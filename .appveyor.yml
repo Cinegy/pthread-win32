@@ -21,7 +21,7 @@ build_script:
   - ps: if ( $Env:PLATFORM -eq 'x86' ) { $Env:BITNESS = '32' } else { $Env:BITNESS = '64' }
   - ps: if ( $Env:APPVEYOR_BUILD_WORKER_IMAGE -eq 'Visual Studio 2013' ) { $VS_VERSION='2013' }
   - ps: if ( $Env:APPVEYOR_BUILD_WORKER_IMAGE -eq 'Visual Studio 2015' ) { $VS_VERSION='2015' }
-  - ps: $env:VS_VERSION = $VS_VERSION
+  - ps: $Env:VS_VERSION = $VS_VERSION
   # build pthread
   - ps: msbuild pthread.${VS_VERSION}.sln /p:Configuration=$Env:CONFIGURATION /p:Platform=$DEVENV_PLATFORM
   - ps: mkdir C:/pthread-$FOLDER_PLATFORM
@@ -30,18 +30,18 @@ build_script:
   - ps: cp *.h C:/pthread-$FOLDER_PLATFORM/include
   - ps: cp bin/$($DEVENV_PLATFORM)_MSVC$VS_VERSION.$Env:CONFIGURATION/pthread_lib.lib C:/pthread-$FOLDER_PLATFORM/lib
   - ps: cp bin/$($DEVENV_PLATFORM)_MSVC$VS_VERSION.$Env:CONFIGURATION/pthread_dll.dll C:/pthread-$FOLDER_PLATFORM/lib
-  - ps: nuget pack Cinegy.Pthreads.nuspec -Properties "version=$Env:APPVEYOR_BUILD_VERSION;bitness=$Env:BITNESS;platform=$Env:PLATFORM;devenv_platform=$Env:DEVENV_PLATFORM"
+  - ps: nuget pack Cinegy.Pthreads.nuspec -Properties "version=$Env:APPVEYOR_BUILD_VERSION;bitness=$Env:BITNESS;platform=$Env:PLATFORM;vsversion=$Env:VS_VERSION"
 
 after_build:
 - cmd: >-
     scripts/gather-package.bat
-        7z a pthread-VS%DEVENV_PLATFORM%-win%BITNESS%-%VS_VERSION%-%APPVEYOR_REPO_BRANCH%-%CONFIGURATION%-%APPVEYOR_BUILD_VERSION%.zip %APPVEYOR_BUILD_FOLDER%\package\*
-        appveyor PushArtifact pthread-VS%DEVENV_PLATFORM%-win%BITNESS%-%VS_VERSION%-%APPVEYOR_REPO_BRANCH%-%CONFIGURATION%-%APPVEYOR_BUILD_VERSION%.zip
+        7z a pthread-win%BITNESS%-%VS_VERSION%-%APPVEYOR_REPO_BRANCH%-%CONFIGURATION%-%APPVEYOR_BUILD_VERSION%.zip %APPVEYOR_BUILD_FOLDER%\package\*
+        appveyor PushArtifact pthread-win%BITNESS%-%VS_VERSION%-%APPVEYOR_REPO_BRANCH%-%CONFIGURATION%-%APPVEYOR_BUILD_VERSION%.zip
 
-        7z a pthread-VS%DEVENV_PLATFORM%-win%BITNESS%-PDB-%VS_VERSION%-%APPVEYOR_REPO_BRANCH%-%CONFIGURATION%-%APPVEYOR_BUILD_VERSION%.zip %APPVEYOR_BUILD_FOLDER%\bin\*
-        appveyor PushArtifact pthread-VS%DEVENV_PLATFORM%-win%BITNESS%-PDB-%VS_VERSION%-%APPVEYOR_REPO_BRANCH%-%CONFIGURATION%-%APPVEYOR_BUILD_VERSION%.zip
+        7z a pthread-win%BITNESS%-PDB-%VS_VERSION%-%APPVEYOR_REPO_BRANCH%-%CONFIGURATION%-%APPVEYOR_BUILD_VERSION%.zip %APPVEYOR_BUILD_FOLDER%\bin\*
+        appveyor PushArtifact pthread-win%BITNESS%-PDB-%VS_VERSION%-%APPVEYOR_REPO_BRANCH%-%CONFIGURATION%-%APPVEYOR_BUILD_VERSION%.zip
 
-        appveyor PushArtifact cinegy.pthreads-VS%S%-win%BITNESS%.%APPVEYOR_BUILD_VERSION%.nupkg
+        appveyor PushArtifact cinegy.pthreads-win%BITNESS%.%APPVEYOR_BUILD_VERSION%-%VS_VERSION%.nupkg
 
 
 on_finish:
