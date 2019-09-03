@@ -7,7 +7,7 @@
 		<authors>Ross Johnson (rpj@ise.canberra.edu.au), Ben Elliston (bje@cygnus.com)</authors>
 		<owners>Cinegy GmbH</owners>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
-		<description>Pthreads-win$bitness$ binary package, built for use by SRT (https://www.srtalliance.org/)</description>
+		<description>Pthreads-VS$devenv_platform$-win$bitness$ binary package, built for use by SRT (https://www.srtalliance.org/)</description>
 		<copyright>Please see http://sourceware.org/pthreads-win32/ for details of authors and contributors</copyright>
 		<license type="expression">LGPL-2.1-only</license>		
 	</metadata>
