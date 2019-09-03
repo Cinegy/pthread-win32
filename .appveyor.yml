@@ -30,7 +30,7 @@ build_script:
   - ps: cp *.h C:/pthread-$FOLDER_PLATFORM/include
   - ps: cp bin/$($DEVENV_PLATFORM)_MSVC$VS_VERSION.$Env:CONFIGURATION/pthread_lib.lib C:/pthread-$FOLDER_PLATFORM/lib
   - ps: cp bin/$($DEVENV_PLATFORM)_MSVC$VS_VERSION.$Env:CONFIGURATION/pthread_dll.dll C:/pthread-$FOLDER_PLATFORM/lib
-  - ps: nuget pack Cinegy.Pthreads.nuspec -Properties "version=$Env:APPVEYOR_BUILD_VERSION;bitness=$Env:BITNESS;platform=$Env:PLATFORM;vsversion=$Env:VS_VERSION"
+  - ps: nuget pack Cinegy.Pthreads$-($Env:APPVEYOR_BUILD_VERSION).nuspec -Properties "version=$Env:APPVEYOR_BUILD_VERSION;bitness=$Env:BITNESS;platform=$Env:PLATFORM;vsversion=$Env:VS_VERSION"
 
 after_build:
 - cmd: >-
